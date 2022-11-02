@@ -6,7 +6,7 @@ const ServiceCard = ({service}) => {
     return (
         <div>
                <div className="card card-compact w-96 bg-base-100 shadow-xl p-6">
-  <figure><img className='w-[400px] h-[225px]' src={img} alt="Shoes" /></figure>
+  <figure><img className='w-11/12 h-[225px]' src={img} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title text-2xl">{title}</h2>
     <p className="font-semibold text-xl text-[#FF3811]">Price : ${price}</p>
