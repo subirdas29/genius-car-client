@@ -1,0 +1,26 @@
+{
+    "css.styleSheets": [
+    
+    ],
+    "editor.codeActionsOnSave": {
+    
+    },
+    "editor.language.colorizedBracketPairs": [
+    
+    ],
+    "debug.javascript.resourceRequestOptions": {
+    
+    },
+    "emmet.preferences": {
+
+    
+    },
+    
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+
+    "emmet.syntaxProfiles": {
+    
+    }
+}
