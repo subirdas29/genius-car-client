@@ -22,6 +22,36 @@ const CheckOut = () => {
             email,
             message,
         }
+
+        if(phone.length>11)
+        {
+            alert('Phone number should be 11 digit')
+        }
+        else{
+            fetch('http://localhost:5000/orders/', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(order),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  if(data.acknowledged){
+                      alert('Successfully ordered')
+                      form.reset();
+              
+                  };
+                })
+                .catch((error) => {
+                  console.error('Error:', error);
+                });
+
+        }
+
+        
+
+
     }
    
 
@@ -34,7 +64,7 @@ const CheckOut = () => {
            <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 my-10'>
            <input type="text" name='FirstName' placeholder="Your First Name" className="input input-bordered w-full " />
             <input type="text" name='LastName' placeholder="Your Last Name" className="input input-bordered w-full " />
-            <input type="text" name='PhoneNumber' placeholder="Your Phone number" className="input input-bordered w-full " />
+            <input type="text" name='PhoneNumber' placeholder="Your Phone number" className="input input-bordered w-full " required />
             <input type="text" name='Email' placeholder="Your Email " defaultValue={user?.email} className="input input-bordered w-full " readOnly />
            </div>
            <div >
