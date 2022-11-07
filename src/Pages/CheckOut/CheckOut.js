@@ -48,13 +48,8 @@ const CheckOut = () => {
                 });
 
         }
-
-        
-
-
     }
-   
-
+    
     return (
        <div >
        

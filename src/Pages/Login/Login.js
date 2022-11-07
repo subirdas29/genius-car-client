@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
+import { json, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
 
   const {login} = useContext(AuthContext)
+  let location = useLocation();
+  let navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
 
     const handleSubmit = event=>{
         event.preventDefault();
@@ -18,6 +22,23 @@ const Login = () => {
      
       const user = result.user;
       console.log(user);
+      const currentUser={
+        email: user.email
+      }
+
+      fetch('http://localhost:5000/jwt',{
+        method:'POST',
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify(currentUser)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        localStorage.setItem('Token',data.token)
+      })
+
+      // navigate(from, { replace: true });
      
     })
     .catch((error) => {
