@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const OrdersRow = ({order,handleDelete,handleUpdate}) => {
+const OrdersRow = ({order,handleDelete,handleUpdate,setLoading}) => {
     const{Service_Name, phone, Customer,Service,_id,status} = order;
     
 
@@ -9,9 +9,12 @@ const OrdersRow = ({order,handleDelete,handleUpdate}) => {
 
     useEffect(()=>
     {
-        fetch(`http://localhost:5000/services/${Service}`)
+        fetch(`https://genius-car-server-eight-mauve.vercel.app/services/${Service}`)
         .then(res=>res.json())
-        .then(data => setOrderService(data))
+        .then(data => {
+          setOrderService(data);
+          
+        })
     },[Service])
 
     return (

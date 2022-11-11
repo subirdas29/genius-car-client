@@ -28,7 +28,7 @@ const CheckOut = () => {
             alert('Phone number should be 11 digit')
         }
         else{
-            fetch('http://localhost:5000/orders/', {
+            fetch('https://genius-car-server-eight-mauve.vercel.app/orders/', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
